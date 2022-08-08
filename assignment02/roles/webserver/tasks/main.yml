@@ -1,0 +1,18 @@
+---
+- name: Installing httpd
+  yum:
+    name: httpd
+    state: present
+- name: Copy file to respective host
+  copy:
+    src: "{{ item.path }}"
+    dest: /var/www/html/index.html
+    group: cloudadmins
+    mode: "0444"
+  loop: "{{ filesdata }}"
+  when: inventory_hostname== item.hostname
+  notify: start_apache_server
+- name: Q4. f - Start Apache webserver
+  service:
+    name: httpd
+    enabled: yes
