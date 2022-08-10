@@ -81,6 +81,6 @@ module "database" {
 resource "null_resource" "ansible-deploy" {
   depends_on = [module.datadisk]
   provisioner "local-exec" {
-    command = "export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook --private-key /home/raopulkit599/.ssh/id_rsa -i hosts groupX-playbook.yml"
+    command = "export ANSIBLE_HOST_KEY_CHECKING=False && ansible-playbook --private-key /home/raopulkit599/.ssh/id_rsa -i hosts playbook_assign02.yml"
   }
 }
