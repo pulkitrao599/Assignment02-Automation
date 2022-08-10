@@ -6,6 +6,6 @@
     backup: yes
     state: present
     block: |
-      "#This is the test block added by ansible.... N01522383"
+      "#This is the test block added by ansible.... N01421308 and N01398804"
       export TMOUT=1800
 
